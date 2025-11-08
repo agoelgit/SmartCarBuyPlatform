@@ -1,26 +1,23 @@
+# openai_service.py
 import os
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+EMBEDDING_MODEL = "text-embedding-3-large"  # 1536-dim
+
 def get_embedding(text: str):
-    """
-    Get OpenAI embeddings for a given text.
-    """
     response = client.embeddings.create(
-        model="text-embedding-3-small",
+        model=EMBEDDING_MODEL,
         input=text
     )
     return response.data[0].embedding
 
 def chat_completion(prompt: str, model: str = "gpt-4o-mini"):
-    """
-    Generate a conversational response using OpenAI chat models.
-    """
     response = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": "You are Zorqk's helpful AI assistant that summarizes vehicle data clearly."},
+            {"role": "system", "content": "You are Zorqk's AI assistant that summarizes vehicle data."},
             {"role": "user", "content": prompt}
         ]
     )

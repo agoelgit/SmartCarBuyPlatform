@@ -15,9 +15,18 @@ class SpecAgent:
             "color": vehicle.get("color"),
             "mileage": vehicle.get("mileage"),
         }
-    
+
     def is_electric(self, vehicle):
-        fuel = str(vehicle.get("fuel", "")).lower()
-        # Match common electric fuel types
-        electric_keywords = ["electric", "ev", "battery"]
-        return any(keyword in fuel for keyword in electric_keywords)
+        """
+        Checks if vehicle is electric.
+        Handles nested MongoDB structure: VehicleSmartData.VehicleDetails.Fuel
+        """
+        try:
+            fuel = vehicle.get("VehicleSmartData", {}).get("VehicleDetails", {}).get("Fuel", "")
+            if not fuel:
+                fuel = vehicle.get("fuel", "")  # fallback
+            fuel = str(fuel).lower()
+            electric_keywords = ["electric", "ev", "battery"]
+            return any(k in fuel for k in electric_keywords)
+        except Exception:
+            return False

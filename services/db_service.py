@@ -20,7 +20,7 @@ except ValueError:
         name="vehicles",
         embedding_function=embedding_functions.OpenAIEmbeddingFunction(
             api_key=OPENAI_API_KEY,
-            model_name="text-embedding-3-small"
+            model_name="text-embedding-3-large"
         )
     )
 
