@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+gradio
+chromadb
+openai
+pydantic
+requests
+python-dotenv
+crewai>=0.50.0
+pymongo
