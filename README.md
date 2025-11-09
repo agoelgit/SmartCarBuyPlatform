@@ -36,7 +36,7 @@ The platform is orchestrated via **CrewAI-style agents**:
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/SmartCarBuyerPlatform.git
+git clone https://github.com/agoelgit/SmartCarBuyPlatform
 cd SmartCarBuyerPlatform
 
 2. **Create a Virtual Environment:**

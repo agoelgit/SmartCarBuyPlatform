@@ -52,3 +52,5 @@ dist/
 # ------------------------------
 gradio_cached_examples/
 gradio_logs/
+
+Installers.txt/
