@@ -7,6 +7,12 @@ pip install -r requirements.txt
 python -m venv .venv
 .venv\Scripts\activate
 
+# Run API (for programmatic calls)
+uvicorn app:app --reload
+
+# Run UI (for chatting)
+python gradio_app.py
+
 //First time
 
 //Git Setup
